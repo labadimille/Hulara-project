@@ -1,0 +1,10 @@
+#!/bin/bash
+# codes/diagnostics/battery_health.sh
+
+echo "[*] Controllo stato batteria..."
+# Legge il voltaggio corrente tramite interfaccia sysfs di Android
+voltage=$(adb shell cat /sys/class/power_supply/battery/voltage_now)
+level=$(adb shell cat /sys/class/power_supply/battery/capacity)
+
+echo "Voltaggio: $voltage uV"
+echo "Livello carica: $level%"
